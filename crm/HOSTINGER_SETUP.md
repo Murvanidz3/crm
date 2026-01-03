@@ -15,9 +15,18 @@
 
 Hostinger-ზე `portal` ფოლდერში შექმენით `.env` ფაილი:
 
-**ვარიანტი A: File Manager-ის მეშვეობით**
+**ვარიანტი A: SSH-ით (რეკომენდებული)**
+
+```bash
+cd ~/domains/onecar.ge/public_html/portal
+nano .env
+```
+
+ჩასვით შემდეგი კონტენტი (ზემოთ მოცემული), შეინახეთ: `Ctrl+X`, `Y`, `Enter`
+
+**ვარიანტი B: File Manager-ის მეშვეობით**
 1. გადადით hPanel → File Manager
-2. გადადით `portal` ფოლდერში
+2. გადადით `domains/onecar.ge/public_html/portal` ფოლდერში
 3. შექმენით ახალი ფაილი `.env`
 4. დააკოპირეთ და ჩასვით შემდეგი კონტენტი:
 
@@ -74,7 +83,7 @@ MAIL_FROM_NAME="${APP_NAME}"
 თუ გაქვთ SSH წვდომა Hostinger-ზე:
 
 ```bash
-cd ~/portal
+cd ~/domains/onecar.ge/public_html/portal
 php artisan key:generate
 ```
 
@@ -90,7 +99,7 @@ php artisan key:generate
 
 **ვარიანტი C: PHP Script-ის გამოყენება**
 
-შექმენით `generate_key.php` ფაილი `portal` ფოლდერში:
+შექმენით `generate_key.php` ფაილი `~/domains/onecar.ge/public_html/portal` ფოლდერში:
 
 ```php
 <?php
@@ -111,7 +120,7 @@ php generate_key.php
 თუ SSH წვდომა გაქვთ, გაუშვით:
 
 ```bash
-cd ~/portal
+cd ~/domains/onecar.ge/public_html/portal
 chmod -R 755 storage
 chmod -R 755 bootstrap/cache
 ```
@@ -167,7 +176,7 @@ chmod -R 755 bootstrap/cache
 ## 📁 ფაილების სტრუქტურა Hostinger-ზე
 
 ```
-portal/
+~/domains/onecar.ge/public_html/portal/
 ├── .env                    ← შექმენით ეს ფაილი
 ├── app/
 ├── bootstrap/

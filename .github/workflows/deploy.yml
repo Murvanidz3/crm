@@ -17,19 +17,19 @@ jobs:
       uses: actions/checkout@v4
 
     # Deploy all CRM files to portal folder
-    - name: 📂 Deploy CRM files
+    - name: 📂 Deploy CRM files to Hostinger
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: ./portal/        # public_html/portal/ (FTP root არის public_html/)
         local-dir: ./crm/            # CRM ფოლდერის ყველა ფაილი
-        server-dir: ./domains/onecar.ge/public_html/portal/  # სრული path portal ფოლდერში
         dangerous-clean-slate: false # არ წაშალოს არსებული ფაილები
+        log-level: verbose           # დეტალური log-ი debug-ისთვის
         exclude: |
           **/.git*
           **/.github*
           README.md
           .env
           *.md
-

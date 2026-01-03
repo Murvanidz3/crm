@@ -24,7 +24,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./crm/            # CRM ფოლდერის ყველა ფაილი
-        server-dir: ./portal/        # portal ფოლდერში
+        server-dir: ./domains/onecar.ge/public_html/portal/  # სრული path portal ფოლდერში
         dangerous-clean-slate: false # არ წაშალოს არსებული ფაილები
         exclude: |
           **/.git*

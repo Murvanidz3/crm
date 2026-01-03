@@ -1,8 +1,0 @@
-*
-!.gitignore
-!cache
-!cache/data
-!sessions
-!testing
-!views
-

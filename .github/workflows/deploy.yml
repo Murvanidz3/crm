@@ -16,21 +16,8 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
 
-    # Deploy public folder contents to portal root (subdomain document root)
-    - name: 📂 Deploy public files to root
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./crm/public/  # public ფოლდერის შიგთავსი
-        server-dir: ./portal/       # portal root-ში (subdomain document root)
-        exclude: |
-          **/.git*
-          **/.github*
-
-    # Deploy other Laravel files to portal folder
-    - name: 📂 Deploy Laravel core files
+    # Deploy all CRM files to portal folder
+    - name: 📂 Deploy CRM files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_SERVER }}
@@ -38,10 +25,10 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./crm/            # CRM ფოლდერის ყველა ფაილი
         server-dir: ./portal/        # portal ფოლდერში
+        dangerous-clean-slate: false # არ წაშალოს არსებული ფაილები
         exclude: |
           **/.git*
           **/.github*
-          **/public/**
           README.md
           .env
           *.md
